@@ -9,84 +9,12 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/start_lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_loc_label"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="@dimen/abc_text_size_large_material" />
-    
-    <EditText
-        android:id="@+id/start_loc_txt"
+    <fragment
+        class="aurora.walkfinder.LocationTextInputFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPostalAddress|textCapWords"
-        android:hint="@string/start_loc_hint"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/start_lbl" />
-
-    <TextView
-        android:id="@+id/end_lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/end_loc_label"
-        android:layout_below="@+id/start_loc_txt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="@dimen/abc_text_size_large_material" />
-    
-    <CheckBox
-        android:id="@+id/end_loc_chk"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/end_loc_checkbox"
-        android:checked="true"
-        android:layout_below="@+id/start_loc_txt"
-        android:layout_toRightOf="@+id/end_lbl" />
-
-    <EditText
-        android:id="@+id/end_loc_txt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress|textCapWords"
-        android:hint="@string/end_loc_hint"
-        android:ems="10"
-        android:layout_below="@+id/end_loc_chk"
-        android:layout_alignLeft="@+id/end_loc_chk"
-        android:layout_alignStart="@+id/end_loc_chk" />
-
-    <TextView
-        android:id="@+id/duration_lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/duration"
-        android:layout_below="@+id/end_loc_txt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="@dimen/abc_text_size_large_material" />
-
-    <EditText
-        android:id="@+id/duration_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_below="@+id/end_loc_txt"
-        android:layout_toRightOf="@+id/duration_lbl"
-        android:layout_toLeftOf="@+id/duration_units_lbl"/>
-
-    <TextView
-        android:id="@+id/duration_units_lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/minutes"
-        android:layout_alignTop="@+id/duration_txt"
-        android:layout_alignParentRight="true"
-        android:textSize="@dimen/abc_text_size_large_material" />
+        android:id="@+id/text_input_frag"
+        tools:layout="@layout/fragment_text_input" />
 
     <Button
         android:id="@+id/go_btn"
@@ -94,9 +22,10 @@
         android:layout_height="wrap_content"
         android:text="@string/go"
         android:layout_weight="1"
-        android:layout_below="@+id/duration_txt"
-        android:layout_alignParentRight="true"
-        android:onClick="plotWalks"/>
+        android:onClick="plotWalks"
+        android:layout_below="@+id/text_input_frag"
+        android:layout_alignRight="@+id/text_input_frag"
+        android:layout_alignEnd="@+id/text_input_frag" />
 
     <TextView
         android:id="@+id/output_lbl"
